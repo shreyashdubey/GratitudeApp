@@ -15,7 +15,7 @@ struct DateBarView: View {
                 
                 HStack{
                     Text(viewModel.formattedDate().uppercased())
-                    .font(.inter(.regular, relativeTo: .headline))
+                    .font(.inter(.bold, relativeTo: .headline))
                                 
                 }
                 
