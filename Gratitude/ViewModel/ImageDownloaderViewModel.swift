@@ -26,11 +26,4 @@ class ImageDownloaderViewModel: ObservableObject {
                 }
             }
         }
-//    func downloadImage(fromURL url: URL) {
-//        APIService.downloadImage(from: url.absoluteString) { image in
-//            DispatchQueue.main.async {
-//                self.downloadedImage = image
-//            }
-//        }
-//    }
 }

@@ -46,23 +46,6 @@ struct ImageViewer: View {
                         viewModel.downloadImage(fromURL: imageURL, completion: {_ in
                         })
                     }
-                    
-//                    VStack(spacing: 0) {
-//                        Image("mountain")
-//                            .resizable()
-//                            .frame(width: 120, height: 64)
-//                            .aspectRatio(contentMode: .fit)
-//                            .onAppear {
-//                                    viewModel.downloadImage(fromURL: imageURL, completion: {_ in
-//                            })
-//                            }
-//
-//                        Text("Content is loading...")
-//                            .font(.inter(.bold, relativeTo: .headline))
-//                            .foregroundColor(Color(hex: "#5B5B5B"))
-//                    }
-//                    .frame(width: 343, height: 418)
-//                    .background(Color(hex: "#CCCCCC"))
                 }
             }
             else {

@@ -17,7 +17,7 @@ struct CardView: View {
     @Binding var shareText: String
     var body: some View {
         VStack( spacing: 0){
-            
+            if let image = imageDownloaderVM.downloadedImage{
             if let dateResponse = dateResponse , let iLink = dateResponse.dzImageUrl, let title = dateResponse.themeTitle{
                 HStack{
                     Text(title)
@@ -73,6 +73,7 @@ struct CardView: View {
                 }
                 
             }
+        }
             else{
                 ImageViewer(imageURL: nil, viewModel: imageDownloaderVM)
                     .frame(width: 343, height: 343)
@@ -83,6 +84,16 @@ struct CardView: View {
         .frame(width: 343, height: 438)
         .background(colorScheme == .dark ? Color(hex: "#1C1C1E") : Color(hex: "#FFFFFF"))
         .cornerRadius(15)
+        .onAppear {
+                    // Start image download if not already started
+                    if imageDownloaderVM.downloadedImage == nil {
+                        if let imageURLString = dateResponse?.dzImageUrl, let imageURL = URL(string: imageURLString) {
+                            imageDownloaderVM.downloadImage(fromURL: imageURL) { _ in
+                                // Image download completion
+                            }
+                        }
+                    }
+                }
     }
 }
 
