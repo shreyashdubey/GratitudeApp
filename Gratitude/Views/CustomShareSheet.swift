@@ -115,6 +115,9 @@ struct CustomShareSheet: View {
                         .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
                 }
                 .frame(width: 65)
+                .onTapGesture {
+                    shareImageToInstagramStories(image: imageToShow!)
+                }
                 VStack {
                     Image("facebookIcon")
                         .resizable()
@@ -124,6 +127,9 @@ struct CustomShareSheet: View {
                         .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
                 }
                 .frame(width: 65)
+                .onTapGesture {
+                    shareImage(image: imageToShow!)
+                }
                 VStack {
                     Image(colorScheme == .dark ? "downloadIconDark" : "downloadIconLight")
                         .resizable()
@@ -142,6 +148,9 @@ struct CustomShareSheet: View {
                         .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
                 }
                 .frame(width: 65)
+                .onTapGesture{
+                    shareImage(image: imageToShow!)
+                }
             }
             
         }
@@ -189,6 +198,29 @@ struct CustomShareSheet: View {
            // Update the @State variable to reflect the copied text
            copiedText = text
        }
+    
+    func shareImageToInstagramStories( image: UIImage) {
+        guard let instagramStoriesUrl = URL(string: "instagram-stories://share?source_application=your-app-bundle-identifier") else {
+            return
+        }
+        
+        if let imageData = image.pngData() {
+            let pasteboardItem = ["com.instagram.sharedSticker.backgroundImage": imageData]
+            let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60 * 5)]
+            
+            UIPasteboard.general.setItems([pasteboardItem], options: pasteboardOptions)
+            
+            UIApplication.shared.open(instagramStoriesUrl, options: [:], completionHandler: nil)
+        } else {
+            print("🙈 Image data not available.")
+        }
+    }
+    
+    func shareImage( image: UIImage) {
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        }
+    
     }
 //struct CustomShareSheet_Previews: PreviewProvider {
 //    static var previews: some View {
