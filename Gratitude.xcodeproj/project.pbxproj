@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6C681BAD2ABC9F0F0017F8E6 /* GratitudeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C681BAC2ABC9F0F0017F8E6 /* GratitudeApp.swift */; };
-		6C681BAF2ABC9F0F0017F8E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C681BAE2ABC9F0F0017F8E6 /* ContentView.swift */; };
 		6C681BB12ABC9F110017F8E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C681BB02ABC9F110017F8E6 /* Assets.xcassets */; };
 		6C681BB52ABC9F110017F8E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C681BB42ABC9F110017F8E6 /* Preview Assets.xcassets */; };
 		6C681BBF2ABC9F110017F8E6 /* GratitudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C681BBE2ABC9F110017F8E6 /* GratitudeTests.swift */; };
@@ -23,6 +22,8 @@
 		6C774EC52AC094AF006FAA85 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C774EBC2AC094AF006FAA85 /* Inter-Regular.ttf */; };
 		6C774EC62AC094AF006FAA85 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C774EBD2AC094AF006FAA85 /* Inter-Light.ttf */; };
 		6C774EC72AC094AF006FAA85 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C774EBE2AC094AF006FAA85 /* Inter-ExtraBold.ttf */; };
+		6CC248892AC1A877000BCDEC /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC248882AC1A877000BCDEC /* BottomSheet.swift */; };
+		6CC2488B2AC1AA3B000BCDEC /* CustomShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2488A2AC1AA3B000BCDEC /* CustomShareSheet.swift */; };
 		6CC32ECA2ABF7BCD0017EA16 /* GratituteCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32EC82ABF7BCD0017EA16 /* GratituteCoreData.xcdatamodeld */; };
 		6CC32ECF2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32ECB2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataClass.swift */; };
 		6CC32ED02ABF7D5F0017EA16 /* DAY_TABLE+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32ECC2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataProperties.swift */; };
@@ -68,7 +69,6 @@
 /* Begin PBXFileReference section */
 		6C681BA92ABC9F0F0017F8E6 /* Gratitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gratitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C681BAC2ABC9F0F0017F8E6 /* GratitudeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GratitudeApp.swift; sourceTree = "<group>"; };
-		6C681BAE2ABC9F0F0017F8E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C681BB02ABC9F110017F8E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C681BB22ABC9F110017F8E6 /* Gratitude.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gratitude.entitlements; sourceTree = "<group>"; };
 		6C681BB42ABC9F110017F8E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -87,6 +87,8 @@
 		6C774EBD2AC094AF006FAA85 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		6C774EBE2AC094AF006FAA85 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
 		6C774EC82AC0BB69006FAA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6CC248882AC1A877000BCDEC /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		6CC2488A2AC1AA3B000BCDEC /* CustomShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareSheet.swift; sourceTree = "<group>"; };
 		6CC32EC92ABF7BCD0017EA16 /* GratituteCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GratituteCoreData.xcdatamodel; sourceTree = "<group>"; };
 		6CC32ECB2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DAY_TABLE+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		6CC32ECC2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DAY_TABLE+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -167,7 +169,6 @@
 				6CD7D6F32ABED71F00ED2434 /* Views */,
 				6CD7D6E02ABEC81100ED2434 /* Common */,
 				6C681BAC2ABC9F0F0017F8E6 /* GratitudeApp.swift */,
-				6C681BAE2ABC9F0F0017F8E6 /* ContentView.swift */,
 				6C681BB02ABC9F110017F8E6 /* Assets.xcassets */,
 				6C681BB22ABC9F110017F8E6 /* Gratitude.entitlements */,
 				6C681BB32ABC9F110017F8E6 /* Preview Content */,
@@ -207,6 +208,7 @@
 				6CD7D6E82ABEC94400ED2434 /* Extensions */,
 				6CD7D6E12ABEC81800ED2434 /* Network */,
 				6CD7D7172ABF5AAD00ED2434 /* ApiEndpoints.swift */,
+				6CC248882AC1A877000BCDEC /* BottomSheet.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -240,6 +242,7 @@
 				6CD7D7122ABF40EE00ED2434 /* Cards */,
 				6CD7D6F42ABED74500ED2434 /* DailyZenTab.swift */,
 				6CD7D6F92ABEE3A300ED2434 /* DateBarView.swift */,
+				6CC2488A2AC1AA3B000BCDEC /* CustomShareSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,10 +449,10 @@
 			files = (
 				6CD7D6EE2ABECA3500ED2434 /* View.swift in Sources */,
 				6CC32ED02ABF7D5F0017EA16 /* DAY_TABLE+CoreDataProperties.swift in Sources */,
+				6CC248892AC1A877000BCDEC /* BottomSheet.swift in Sources */,
 				6CC32ECF2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataClass.swift in Sources */,
 				6CD7D7182ABF5AAD00ED2434 /* ApiEndpoints.swift in Sources */,
 				6CD7D6F22ABECAE400ED2434 /* Data.swift in Sources */,
-				6C681BAF2ABC9F0F0017F8E6 /* ContentView.swift in Sources */,
 				6C774EB52AC015A5006FAA85 /* ImageDownloaderViewModel.swift in Sources */,
 				6CD7D71B2ABF5B4600ED2434 /* DateResponse.swift in Sources */,
 				6CD7D6EA2ABEC99800ED2434 /* DictionaryEncodable.swift in Sources */,
@@ -469,6 +472,7 @@
 				6C681BAD2ABC9F0F0017F8E6 /* GratitudeApp.swift in Sources */,
 				6CD7D6E72ABEC8D600ED2434 /* ReachabilityManager.swift in Sources */,
 				6C774EB32AC01521006FAA85 /* ImageViewer.swift in Sources */,
+				6CC2488B2AC1AA3B000BCDEC /* CustomShareSheet.swift in Sources */,
 				6CC32ED12ABF7D5F0017EA16 /* CARD_TABLE+CoreDataClass.swift in Sources */,
 				6CD7D7142ABF411700ED2434 /* CardView.swift in Sources */,
 			);

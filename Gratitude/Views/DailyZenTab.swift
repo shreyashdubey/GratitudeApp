@@ -15,6 +15,9 @@ struct DailyZenTab: View {
     @State var dateResponseArray: [DateResponse] = []
     @State var currentDateChangeObeserver: AnyCancellable?
     @Environment(\.colorScheme) var colorScheme
+    @State var showShareSheet = false
+    @State var imageToShow: UIImage?
+    @State var shareText: String = ""
     var body: some View {
         ZStack{
             //Color.black.ignoresSafeArea()
@@ -25,13 +28,18 @@ struct DailyZenTab: View {
                     if dateResponseArray.count != 0{
                         VStack{
                             ForEach(dateResponseArray){ chunk in
-                                CardView(dateResponse: chunk)
-                                    .padding(.bottom)
+                                CardView(dateResponse: chunk, showShareSheet: Binding(
+                                                            get: { showShareSheet },
+                                                            set: { newValue in
+                                                                showShareSheet = newValue
+                                                            }
+                                                        ), imageToShow: $imageToShow, shareText: $shareText)
+                                                        .padding(.bottom)
                             }
                         }
                     }
                     else{
-                        CardView(dateResponse: nil)
+                        CardView(dateResponse: nil, showShareSheet: .constant(false), imageToShow: .constant(nil), shareText: .constant("nil"))
                             .padding(.bottom, 400)
                     }
                     
@@ -49,10 +57,10 @@ struct DailyZenTab: View {
                     }
                         .padding(.bottom, 70)
                         .padding(.top, 70)
-                        
                 }
                 .background(colorScheme != .dark ? Color(hex: "#FAF9F6") : Color.black)
             }
+            BottomSheet(isShowing: $showShareSheet, content: AnyView(CustomShareSheet(imageToShow: imageToShow, showShareSheet: $showShareSheet, shareText: $shareText)))
         }
         .onAppear(){
             self.currentDateChangeObeserver = dateBar_VM.$currentDate.sink(receiveValue: { updateValue in
@@ -84,8 +92,8 @@ struct DailyZenTab: View {
         
 }
 
-struct DailyZenTab_Previews: PreviewProvider {
-    static var previews: some View {
-        DailyZenTab()
-    }
-}
+//struct DailyZenTab_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DailyZenTab()
+//    }
+//}
