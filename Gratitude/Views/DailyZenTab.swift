@@ -21,47 +21,55 @@ struct DailyZenTab: View {
     var body: some View {
         ZStack{
             //Color.black.ignoresSafeArea()
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack{
-                    DateBarView(viewModel: dateBar_VM)
-                        .padding(.bottom)
-                    if dateResponseArray.count != 0{
+            VStack {
+                DateBarView(viewModel: dateBar_VM)
+                    .padding(.bottom)
+                ScrollViewReader { proxy in
+                    ScrollView(.vertical, showsIndicators: false) {
                         VStack{
-                            ForEach(dateResponseArray){ chunk in
-                                CardView(dateResponse: chunk, showShareSheet: Binding(
-                                                            get: { showShareSheet },
-                                                            set: { newValue in
-                                                                showShareSheet = newValue
-                                                            }
-                                                        ), imageToShow: $imageToShow, shareText: $shareText)
-                                                        .padding(.bottom)
+                            if dateResponseArray.count != 0{
+                                VStack{
+                                    ForEach(dateResponseArray){ chunk in
+                                        CardView(dateResponse: chunk, showShareSheet: Binding(
+                                                                    get: { showShareSheet },
+                                                                    set: { newValue in
+                                                                        showShareSheet = newValue
+                                                                    }
+                                                                ), imageToShow: $imageToShow, shareText: $shareText)
+                                                                .padding(.bottom)
+                                    }
+                                }
                             }
+                            else{
+                                CardView(dateResponse: nil, showShareSheet: .constant(false), imageToShow: .constant(nil), shareText: .constant("nil"))
+                                    .padding(.bottom, 400)
+                            }
+                            
+                            VStack{
+                                Image("girlHead")
+                                    .resizable()
+                                    .frame(width: 127, height: 128)
+                                    .padding(.bottom)
+                                HStack{
+                                    Text("That’s the Zen for today!\nSee you tomorrow :)")
+                                        .font(.inter(.regular, relativeTo: .headline))
+                                        .foregroundColor(Color(hex: "#847374"))
+                                        .multilineTextAlignment(.center)
+                                }
+                            }
+                                .padding(.bottom, 70)
+                                .padding(.top, 70)
                         }
-                    }
-                    else{
-                        CardView(dateResponse: nil, showShareSheet: .constant(false), imageToShow: .constant(nil), shareText: .constant("nil"))
-                            .padding(.bottom, 400)
+                        .onAppear(){
+                            proxy.scrollTo(0)
+                        }
                     }
                     
-                    VStack{
-                        Image("girlHead")
-                            .resizable()
-                            .frame(width: 127, height: 128)
-                            .padding(.bottom)
-                        HStack{
-                            Text("That’s the Zen for today!\nSee you tomorrow :)")
-                                .font(.inter(.regular, relativeTo: .headline))
-                                .foregroundColor(Color(hex: "#847374"))
-                                .multilineTextAlignment(.center)
-                        }
-                    }
-                        .padding(.bottom, 70)
-                        .padding(.top, 70)
                 }
-                .background(colorScheme != .dark ? Color(hex: "#FAF9F6") : Color.black)
             }
             BottomSheet(isShowing: $showShareSheet, content: AnyView(CustomShareSheet(imageToShow: imageToShow, showShareSheet: $showShareSheet, shareText: $shareText)))
         }
+        .background(colorScheme != .dark ? Color(hex: "#FAF9F6") : Color.black)
         .onAppear(){
             self.currentDateChangeObeserver = dateBar_VM.$currentDate.sink(receiveValue: { updateValue in
                 dateResponseArray = []

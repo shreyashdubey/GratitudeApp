@@ -15,7 +15,7 @@ struct DateBarView: View {
                 
                 HStack{
                     Text(viewModel.formattedDate().uppercased())
-                    .font(.inter(.Semibold, relativeTo: .headline))
+                    .font(.inter(.regular, relativeTo: .headline))
                                 
                 }
                 
@@ -31,7 +31,7 @@ struct DateBarView: View {
                                     .resizable()
                                     .frame(width: 16, height: 28)
                                 Text("Previous")
-                                    .font(.inter(.Semibold, relativeTo: .headline))
+                                    .font(.inter(.regular, relativeTo: .headline))
                                     .foregroundColor(Color(hex: "#EA436B"))
                                     .onAppear {
                                            let font = Font.inter(.bold, relativeTo: .headline)
@@ -52,7 +52,7 @@ struct DateBarView: View {
                             HStack {
                                 Text("Next")
                                     .foregroundColor(Color(hex: "#EA436B"))
-                                    .font(.inter(.Semibold, relativeTo: .headline))
+                                    .font(.inter(.regular, relativeTo: .headline))
                                 Image("previousArrow")
                                     .resizable()
                                     .rotationEffect(Angle(degrees: 180))

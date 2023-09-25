@@ -154,9 +154,6 @@ struct CustomShareSheet: View {
             }
             
         }
-        .onAppear(){
-            print("cc",colorScheme)
-        }
     }
     func checkIfWhatsAppInstalled() -> Bool {
             return UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!)
@@ -191,11 +188,8 @@ struct CustomShareSheet: View {
     
     
     func copyTextToClipboard(text: String) {
-           // Create a UIPasteboard instance for the general pasteboard
            let pasteboard = UIPasteboard.general
-           // Set the text you want to copy to the clipboard
            pasteboard.string = text
-           // Update the @State variable to reflect the copied text
            copiedText = text
        }
     

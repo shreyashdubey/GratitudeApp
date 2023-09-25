@@ -39,29 +39,6 @@ open class ReachabilityManager {
         return (isReachable && !needsConnection)
     }
 }
-
-
-
-//
-//class NetworkObserver: ObservableObject {
-//    let monitor = NWPathMonitor()
-//    let queue = DispatchQueue(label: "NetworkMonitor")
-//
-//    @Published private(set) var connected: Bool = false
-//
-//    func checkConnection() {
-//        monitor.pathUpdateHandler = { path in
-//            if path.status == .satisfied {
-//                    self.connected = true
-//            } else {
-//                    self.connected = false
-//            }
-//        }
-//        monitor.start(queue: queue)
-//    }
-//}
-
-// An enum to handle the network status
 enum NetworkStatus: String {
     case connected
     case disconnected

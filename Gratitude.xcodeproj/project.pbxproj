@@ -30,13 +30,11 @@
 		6CC32ED12ABF7D5F0017EA16 /* CARD_TABLE+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32ECD2ABF7D5F0017EA16 /* CARD_TABLE+CoreDataClass.swift */; };
 		6CC32ED22ABF7D5F0017EA16 /* CARD_TABLE+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32ECE2ABF7D5F0017EA16 /* CARD_TABLE+CoreDataProperties.swift */; };
 		6CD7D6E32ABEC84100ED2434 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6E22ABEC84100ED2434 /* ApiService.swift */; };
-		6CD7D6E52ABEC89400ED2434 /* ApiSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6E42ABEC89400ED2434 /* ApiSessionHandler.swift */; };
 		6CD7D6E72ABEC8D600ED2434 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6E62ABEC8D600ED2434 /* ReachabilityManager.swift */; };
 		6CD7D6EA2ABEC99800ED2434 /* DictionaryEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6E92ABEC99800ED2434 /* DictionaryEncodable.swift */; };
 		6CD7D6EC2ABECA0100ED2434 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6EB2ABECA0100ED2434 /* Color.swift */; };
 		6CD7D6EE2ABECA3500ED2434 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6ED2ABECA3500ED2434 /* View.swift */; };
 		6CD7D6F02ABECAA200ED2434 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6EF2ABECAA200ED2434 /* String.swift */; };
-		6CD7D6F22ABECAE400ED2434 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6F12ABECAE300ED2434 /* Data.swift */; };
 		6CD7D6F52ABED74500ED2434 /* DailyZenTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6F42ABED74500ED2434 /* DailyZenTab.swift */; };
 		6CD7D6F82ABEE34300ED2434 /* DateBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6F72ABEE34300ED2434 /* DateBarViewModel.swift */; };
 		6CD7D6FA2ABEE3A300ED2434 /* DateBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6F92ABEE3A300ED2434 /* DateBarView.swift */; };
@@ -95,13 +93,11 @@
 		6CC32ECD2ABF7D5F0017EA16 /* CARD_TABLE+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CARD_TABLE+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		6CC32ECE2ABF7D5F0017EA16 /* CARD_TABLE+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CARD_TABLE+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		6CD7D6E22ABEC84100ED2434 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		6CD7D6E42ABEC89400ED2434 /* ApiSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionHandler.swift; sourceTree = "<group>"; };
 		6CD7D6E62ABEC8D600ED2434 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		6CD7D6E92ABEC99800ED2434 /* DictionaryEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncodable.swift; sourceTree = "<group>"; };
 		6CD7D6EB2ABECA0100ED2434 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6CD7D6ED2ABECA3500ED2434 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		6CD7D6EF2ABECAA200ED2434 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		6CD7D6F12ABECAE300ED2434 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6CD7D6F42ABED74500ED2434 /* DailyZenTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenTab.swift; sourceTree = "<group>"; };
 		6CD7D6F72ABEE34300ED2434 /* DateBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateBarViewModel.swift; sourceTree = "<group>"; };
 		6CD7D6F92ABEE3A300ED2434 /* DateBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateBarView.swift; sourceTree = "<group>"; };
@@ -201,14 +197,21 @@
 			path = GratitudeUITests;
 			sourceTree = "<group>";
 		};
+		6C6D3F322AC22E7800B24DE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6CC248882AC1A877000BCDEC /* BottomSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6CD7D6E02ABEC81100ED2434 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6C6D3F322AC22E7800B24DE8 /* Views */,
 				6CD7D6FD2ABF0C9900ED2434 /* CustomFonts */,
 				6CD7D6E82ABEC94400ED2434 /* Extensions */,
 				6CD7D6E12ABEC81800ED2434 /* Network */,
-				6CD7D7172ABF5AAD00ED2434 /* ApiEndpoints.swift */,
-				6CC248882AC1A877000BCDEC /* BottomSheet.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -216,8 +219,8 @@
 		6CD7D6E12ABEC81800ED2434 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6CD7D7172ABF5AAD00ED2434 /* ApiEndpoints.swift */,
 				6CD7D6E22ABEC84100ED2434 /* ApiService.swift */,
-				6CD7D6E42ABEC89400ED2434 /* ApiSessionHandler.swift */,
 				6CD7D6E62ABEC8D600ED2434 /* ReachabilityManager.swift */,
 			);
 			path = Network;
@@ -230,7 +233,6 @@
 				6CD7D6EB2ABECA0100ED2434 /* Color.swift */,
 				6CD7D6ED2ABECA3500ED2434 /* View.swift */,
 				6CD7D6EF2ABECAA200ED2434 /* String.swift */,
-				6CD7D6F12ABECAE300ED2434 /* Data.swift */,
 				6CD7D6FB2ABEE52200ED2434 /* Date.swift */,
 			);
 			path = Extensions;
@@ -452,7 +454,6 @@
 				6CC248892AC1A877000BCDEC /* BottomSheet.swift in Sources */,
 				6CC32ECF2ABF7D5F0017EA16 /* DAY_TABLE+CoreDataClass.swift in Sources */,
 				6CD7D7182ABF5AAD00ED2434 /* ApiEndpoints.swift in Sources */,
-				6CD7D6F22ABECAE400ED2434 /* Data.swift in Sources */,
 				6C774EB52AC015A5006FAA85 /* ImageDownloaderViewModel.swift in Sources */,
 				6CD7D71B2ABF5B4600ED2434 /* DateResponse.swift in Sources */,
 				6CD7D6EA2ABEC99800ED2434 /* DictionaryEncodable.swift in Sources */,
@@ -466,7 +467,6 @@
 				6CD7D7112ABF167900ED2434 /* GratitudeFonts.swift in Sources */,
 				6CD7D6E32ABEC84100ED2434 /* ApiService.swift in Sources */,
 				6CD7D6FC2ABEE52200ED2434 /* Date.swift in Sources */,
-				6CD7D6E52ABEC89400ED2434 /* ApiSessionHandler.swift in Sources */,
 				6CC32ED22ABF7D5F0017EA16 /* CARD_TABLE+CoreDataProperties.swift in Sources */,
 				6CD7D6F52ABED74500ED2434 /* DailyZenTab.swift in Sources */,
 				6C681BAD2ABC9F0F0017F8E6 /* GratitudeApp.swift in Sources */,

@@ -28,17 +28,12 @@ struct ImageViewer: View {
                         .frame(width: 343, height: 343)
                 } else {
                     // Use the provided placeholder while loading
+                    
                     VStack(spacing: 0) {
                         Image("mountain")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 64, height: 120)
-                            .onAppear {
-                                    viewModel.downloadImage(fromURL: imageURL, completion: {_ in
-                                        
-                                    })
-                                
-                            }
+                            .frame(width: 120, height: 64)
                         
                         Text("Content is loading...")
                             .font(.inter(.bold, relativeTo: .headline))
@@ -47,14 +42,35 @@ struct ImageViewer: View {
                     }
                     .frame(width: 343, height: 343)
                     .background(Color(hex: "#CCCCCC"))
+                    .onAppear {
+                        viewModel.downloadImage(fromURL: imageURL, completion: {_ in
+                        })
+                    }
+                    
+//                    VStack(spacing: 0) {
+//                        Image("mountain")
+//                            .resizable()
+//                            .frame(width: 120, height: 64)
+//                            .aspectRatio(contentMode: .fit)
+//                            .onAppear {
+//                                    viewModel.downloadImage(fromURL: imageURL, completion: {_ in
+//                            })
+//                            }
+//
+//                        Text("Content is loading...")
+//                            .font(.inter(.bold, relativeTo: .headline))
+//                            .foregroundColor(Color(hex: "#5B5B5B"))
+//                    }
+//                    .frame(width: 343, height: 418)
+//                    .background(Color(hex: "#CCCCCC"))
                 }
-            } else {
-                // Display a placeholder for no image URL
+            }
+            else {
                 VStack(spacing: 0) {
                     Image("mountain")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 64, height: 120)
+                        .frame(width: 120, height: 64)
                     
                     Text("Content is loading...")
                         .font(.inter(.bold, relativeTo: .headline))

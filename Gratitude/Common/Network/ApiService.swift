@@ -45,17 +45,9 @@ final class APIService{
         configuration.waitsForConnectivity = true
         configuration.timeoutIntervalForRequest = 60
         configuration.timeoutIntervalForResource = 60
-        return URLSession(configuration: configuration, delegate: NetworkSessionHandler(), delegateQueue: .main)
+        return URLSession(configuration: configuration, delegate: nil, delegateQueue: .main)
     }()
     
-    lazy var sessionManagerWithoutTimeout: URLSession = {
-        let configuration = URLSessionConfiguration.default
-        configuration.waitsForConnectivity = true
-        configuration.allowsExpensiveNetworkAccess = true
-        configuration.allowsConstrainedNetworkAccess = true
-        configuration.allowsCellularAccess = true
-        return URLSession(configuration: configuration, delegate: NetworkSessionHandler(), delegateQueue: .main)
-    }()
     
     
     lazy var apiRequestLog = [APICallStatusModel]()
@@ -74,43 +66,6 @@ final class APIService{
         case invalidStatusCode
     }
     
-    
-    func downloadFileFrom(url: String, responseHandler: @escaping (Data?) -> ()) {
-        print("downloadFileFromURL", url)
-        if let url = URL(string: url){
-            APIService.shared().sessionManager.dataTask(with: url) { data, urlResponse, error in
-                print("downloadedFileFrom", url)
-                print("downloadedFiledata", data)
-                if (error == nil && data != Data()), let fileData = data {
-                    responseHandler(data)
-                    return
-                }else{
-                    responseHandler(nil)
-                }
-            }.resume()
-        }else{
-            responseHandler(nil)
-            print("downloadFileFrom-failed", url)
-        }
-    }
-    
-    
-    func downloadImageWith(url: String, task: String)  async throws -> UIImage {
-        let imageUrl = URL(string: url)!
-        let imageRequest = URLRequest(url: imageUrl)
-        print("startedTask", task)
-        let (data, response) = try await URLSession.shared.data(for: imageRequest)
-            print("finishedTask:",task)
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-            throw DownloadError.invalidStatusCode
-        }
-        
-        guard let image = UIImage(data: data) else {
-            throw DownloadError.badImage
-        }
-        
-        return image
-    }
     
     static func downloadImage(from urlString: String, imageResponseHandler: @escaping (UIImage?) -> ()) {
         
@@ -170,11 +125,6 @@ final class APIService{
             jsonParameters = APIService.convertToJsonString(parameters: parameters)
             
             var headers = [String:String]()
-            if customHeader != nil{
-                headers = customHeader!
-            }else{
-                headers = APIService.getHeaders(accessToken: accessToken)
-            }
             
             print("APIService-URl: ", callURl)
             print("APIService-Headers", headers)
@@ -262,29 +212,6 @@ final class APIService{
         return request
     }
     
-    static func getHeaders(contentType: String = "application/json", accessToken : String = "") -> [String:String] {
-        var headers =
-        ["api-key" : "aQme71D1AC9KLUqAhrZ",
-         "Content-Type": contentType]
-        
-        //TODO: 
-//        if AppUtils.fetchAccessToken() != ""{
-//            headers["access-token"] = ""//AppUtils.fetchAccessToken()
-//        }
-//
-//        if let accessToken = AppUtils.fetchUserData()?.accessToken{
-//            if accessToken != ""{
-//                headers["access-token"] = accessToken
-//            }
-//        }
-        
-        if accessToken != ""{
-            headers["access-token"] = accessToken
-        }
-        return headers
-    }
-    
-    
     static func convertToJsonString(parameters: Any = [String:Any]()) -> String{
         let jsonParamters = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonParamters, encoding: .utf8)!
@@ -330,57 +257,3 @@ final class APIService{
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//extension APIService: FullScreenAlertVCDelegate{
-//    func didTapOnPrimaryButton(button: UIButton, alertVC: FullScreenAlertVC?) {
-//        for (index,apiCall) in APIService.shared().apiRetryCallLog.enumerated(){
-//            APIService.shared().callAPI(callURl: apiCall.request.callURl,
-//                                        parameters: apiCall.request.parameters,
-//                                        encryptParameters: apiCall.request.encryptParameters,
-//                                        customHeader: apiCall.request.customHeader,
-//                                        httpMethod: apiCall.request.httpMethod,
-//                                        defaultToken: apiCall.request.defaultToken,
-//                                        showLoader: apiCall.request.showLoader,
-//                                        forceRetry: apiCall.request.forceRetry,
-//                                        completionHandler: apiCall.request.completionHandler)
-//
-//            APIService.shared().apiRetryCallLog[index].wasRetried = true
-//            APIService.shared().apiRetryCallLog[index].retryCount = APIService.shared().apiRetryCallLog[index].retryCount + 1
-//        }
-//        APIService.shared().apiRetryCallLog.removeAll(where: {$0.wasRetried == true})
-//    }
-//
-//    func didTapOnSecondaryButton(button: UIButton, alertVC: FullScreenAlertVC?) {
-//
-//    }
-//}
-
-
-
-
-
-
-/*
- switch httpResponse.statusCode {
-         case 200...299:
-             return .success(data)
-         case 400...499:
-             return .failure(APIError.badRequest)
-         case 500...599:
-             return .failure(APIError.serverError)
-         default:
-             return .failure(APIError.unknown)
- }
- */
