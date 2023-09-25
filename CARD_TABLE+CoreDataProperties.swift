@@ -2,7 +2,7 @@
 //  CARD_TABLE+CoreDataProperties.swift
 //  Gratitude
 //
-//  Created by Bhavesh Singh on 9/24/23.
+//  Created by Shreyash on 9/24/23.
 //
 //
 

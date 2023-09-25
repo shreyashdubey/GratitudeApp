@@ -2,7 +2,7 @@
 //  CustomShareSheet.swift
 //  Gratitude
 //
-//  Created by Bhavesh Singh on 9/25/23.
+//  Created by Shreyash on 9/25/23.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  GratitudeApp.swift
 //  Gratitude
 //
-//  Created by Bhavesh Singh on 9/21/23.
+//  Created by Shreyash on 9/21/23.
 //
 
 import SwiftUI

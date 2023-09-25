@@ -2,7 +2,7 @@
 //  String.swift
 //  Gratitude
 //
-//  Created by Bhavesh Singh on 9/23/23.
+//  Created by Shreyash on 9/23/23.
 //
 
 import Foundation
