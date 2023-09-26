@@ -12,14 +12,10 @@ struct DateBarView: View {
     var body: some View {
         VStack {
             ZStack {
-                
                 HStack{
                     Text(viewModel.formattedDate().uppercased())
-                    .font(.inter(.bold, relativeTo: .headline))
-                                
+                        .font(.inter(.bold, relativeTo: .headline))
                 }
-                
-                
                 HStack{
                     
                     if viewModel.isPreviousAvailble{
@@ -33,12 +29,12 @@ struct DateBarView: View {
                                 Text("Previous")
                                     .font(.inter(.regular, relativeTo: .headline))
                                     .foregroundColor(Color(hex: "#EA436B"))
-                            
+                                
                             }
                         }
                         .padding(.leading, 5)
                     }
-                    
+
                     Spacer()
                     
                     if viewModel.isNextAvailble{
@@ -65,8 +61,3 @@ struct DateBarView: View {
     }
 }
 
-struct DateBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        DateBarView(viewModel: DateBarViewModel())
-    }
-}

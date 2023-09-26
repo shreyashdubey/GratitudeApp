@@ -38,7 +38,7 @@ class DailyZenTabViewModel: ObservableObject {
             print(jsonResponse)
             if let apiResponseModel = APIService.decode([DateResponse].self, from: jsonResponse ?? "") {
                 print("\n\n\n", apiResponseModel.count)
-                self.dateResponseArray = apiResponseModel // Update the property directly
+                self.dateResponseArray = apiResponseModel
             } else {
                 print("ERRORR")
             }

@@ -12,7 +12,6 @@ class ImageDownloaderViewModel: ObservableObject {
     
     func downloadImage(fromURL url: URL, completion: @escaping (UIImage?) -> Void) {
             if let cachedImage = APIService.imageCache.object(forKey: url as AnyObject) as? UIImage {
-                // Use the cached image if available
                 print("Image was cached")
                 self.downloadedImage = cachedImage
                 completion(cachedImage)

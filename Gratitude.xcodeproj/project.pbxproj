@@ -38,7 +38,6 @@
 		6CD7D7112ABF167900ED2434 /* GratitudeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D7102ABF167900ED2434 /* GratitudeFonts.swift */; };
 		6CD7D7142ABF411700ED2434 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D7132ABF411700ED2434 /* CardView.swift */; };
 		6CD7D7162ABF456D00ED2434 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D7152ABF456D00ED2434 /* CardViewModel.swift */; };
-		6CD7D7182ABF5AAD00ED2434 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D7172ABF5AAD00ED2434 /* ApiEndpoints.swift */; };
 		6CD7D71B2ABF5B4600ED2434 /* DateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D71A2ABF5B4600ED2434 /* DateResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +95,6 @@
 		6CD7D7102ABF167900ED2434 /* GratitudeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GratitudeFonts.swift; sourceTree = "<group>"; };
 		6CD7D7132ABF411700ED2434 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6CD7D7152ABF456D00ED2434 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
-		6CD7D7172ABF5AAD00ED2434 /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		6CD7D71A2ABF5B4600ED2434 /* DateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +206,6 @@
 		6CD7D6E12ABEC81800ED2434 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				6CD7D7172ABF5AAD00ED2434 /* ApiEndpoints.swift */,
 				6CD7D6E22ABEC84100ED2434 /* ApiService.swift */,
 				6CD7D6E62ABEC8D600ED2434 /* ReachabilityManager.swift */,
 			);
@@ -420,7 +417,6 @@
 			files = (
 				6CD7D6EE2ABECA3500ED2434 /* View.swift in Sources */,
 				6CC248892AC1A877000BCDEC /* BottomSheet.swift in Sources */,
-				6CD7D7182ABF5AAD00ED2434 /* ApiEndpoints.swift in Sources */,
 				6C774EB52AC015A5006FAA85 /* ImageDownloaderViewModel.swift in Sources */,
 				6CD7D71B2ABF5B4600ED2434 /* DateResponse.swift in Sources */,
 				6CD7D6EA2ABEC99800ED2434 /* DictionaryEncodable.swift in Sources */,
