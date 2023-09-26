@@ -50,6 +50,7 @@ struct CardView: View {
                         }
                         if dzType == "send" || dzType == "share" || dzType == "add_affn" || dzType == "read"{
                             Button(action: {
+                                showShareSheet = true
                                 imageToShow = imageDownloaderVM.downloadedImage
                                 print("made true")
                                 shareText = ("\"" + (dateResponse.sharePrefix ?? " ") + "\" ") + (dateResponse.articleUrl ?? " ")

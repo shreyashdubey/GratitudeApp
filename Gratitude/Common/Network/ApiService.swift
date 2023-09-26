@@ -70,23 +70,19 @@ final class APIService{
     static func downloadImage(from urlString: String, imageResponseHandler: @escaping (UIImage?) -> ()) {
         
         if let url = URL(string: urlString){
-            if let imageData = APIService.imageCache.object(forKey: url as AnyObject), let image = imageData as? UIImage{
-                imageResponseHandler(image)
-            }else{
-                APIService.shared().sessionManager.dataTask(with: url) { data, urlResponse, error in
-                    if (error == nil && data != nil && data != Data()), let imageData = data {
-                        if UIImage(data: imageData, scale:1) != nil {
-                            let image = UIImage(data: imageData, scale:1)  ?? UIImage()
-                            
-                            APIService.imageCache.setObject(image, forKey: url as AnyObject)
-                            
-                            imageResponseHandler(image)
-                        }
-                    }else{
-                        imageResponseHandler(UIImage())
+            APIService.shared().sessionManager.dataTask(with: url) { data, urlResponse, error in
+                if (error == nil && data != nil && data != Data()), let imageData = data {
+                    if UIImage(data: imageData, scale:1) != nil {
+                        let image = UIImage(data: imageData, scale:1)  ?? UIImage()
+                        
+                        APIService.imageCache.setObject(image, forKey: url as AnyObject)
+                        
+                        imageResponseHandler(image)
                     }
-                }.resume()
-            }
+                }else{
+                    imageResponseHandler(UIImage())
+                }
+            }.resume()
         }else{
             imageResponseHandler(UIImage())
         }

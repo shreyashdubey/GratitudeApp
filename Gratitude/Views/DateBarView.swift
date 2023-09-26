@@ -33,10 +33,6 @@ struct DateBarView: View {
                                 Text("Previous")
                                     .font(.inter(.regular, relativeTo: .headline))
                                     .foregroundColor(Color(hex: "#EA436B"))
-                                    .onAppear {
-                                           let font = Font.inter(.bold, relativeTo: .headline)
-                                           print("--my font",font)
-                                       }
                             
                             }
                         }
