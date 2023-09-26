@@ -22,6 +22,7 @@
 		6C774EC52AC094AF006FAA85 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C774EBC2AC094AF006FAA85 /* Inter-Regular.ttf */; };
 		6C774EC62AC094AF006FAA85 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C774EBD2AC094AF006FAA85 /* Inter-Light.ttf */; };
 		6C774EC72AC094AF006FAA85 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C774EBE2AC094AF006FAA85 /* Inter-ExtraBold.ttf */; };
+		6C82A7642AC29651000E7617 /* DailyZenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82A7632AC29651000E7617 /* DailyZenTabViewModel.swift */; };
 		6CC248892AC1A877000BCDEC /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC248882AC1A877000BCDEC /* BottomSheet.swift */; };
 		6CC2488B2AC1AA3B000BCDEC /* CustomShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2488A2AC1AA3B000BCDEC /* CustomShareSheet.swift */; };
 		6CD7D6E32ABEC84100ED2434 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7D6E22ABEC84100ED2434 /* ApiService.swift */; };
@@ -79,6 +80,7 @@
 		6C774EBD2AC094AF006FAA85 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		6C774EBE2AC094AF006FAA85 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
 		6C774EC82AC0BB69006FAA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6C82A7632AC29651000E7617 /* DailyZenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenTabViewModel.swift; sourceTree = "<group>"; };
 		6CC248882AC1A877000BCDEC /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		6CC2488A2AC1AA3B000BCDEC /* CustomShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareSheet.swift; sourceTree = "<group>"; };
 		6CD7D6E22ABEC84100ED2434 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				6CD7D7152ABF456D00ED2434 /* CardViewModel.swift */,
 				6CD7D6F72ABEE34300ED2434 /* DateBarViewModel.swift */,
 				6C774EB42AC015A5006FAA85 /* ImageDownloaderViewModel.swift */,
+				6C82A7632AC29651000E7617 /* DailyZenTabViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				6CD7D6FA2ABEE3A300ED2434 /* DateBarView.swift in Sources */,
 				6CD7D6EC2ABECA0100ED2434 /* Color.swift in Sources */,
 				6CD7D7112ABF167900ED2434 /* GratitudeFonts.swift in Sources */,
+				6C82A7642AC29651000E7617 /* DailyZenTabViewModel.swift in Sources */,
 				6CD7D6E32ABEC84100ED2434 /* ApiService.swift in Sources */,
 				6CD7D6FC2ABEE52200ED2434 /* Date.swift in Sources */,
 				6CD7D6F52ABED74500ED2434 /* DailyZenTab.swift in Sources */,

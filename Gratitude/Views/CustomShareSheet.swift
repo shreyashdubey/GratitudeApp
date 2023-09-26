@@ -91,51 +91,48 @@ struct CustomShareSheet: View {
             }
             .padding(.bottom)
             HStack{
-                if checkIfWhatsAppInstalled(){
-                    VStack {
-                        Image("whatsappIcon")
-                            .resizable()
-                            .frame(width: 44,height: 44)
-                        Text("Whatsapp")
-                            .font(.inter(.bold, relativeTo: .caption))
-                            .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
-                    }
-                    .frame(width: 65)
-                    .onTapGesture {
-                        shareOnWhatsApp(text: "Test", image: imageToShow)
-                    }
-                }
                 
-                if isInstagramInstalled(){
-                    VStack {
-                        Image("instagramIcon")
-                            .resizable()
-                            .frame(width: 44,height: 44)
-                        Text("Instagram")
-                            .font(.inter(.bold, relativeTo: .caption))
-                            .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
-                    }
-                    .frame(width: 65)
-                    .onTapGesture {
-                        shareImageToInstagramStories(image: imageToShow!)
-                    }
+                VStack {
+                    Image("whatsappIcon")
+                        .resizable()
+                        .frame(width: 44,height: 44)
+                    Text("Whatsapp")
+                        .font(.inter(.bold, relativeTo: .caption))
+                        .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
+                }
+                .frame(width: 65)
+                .onTapGesture {
+                    shareOnWhatsApp(text: "Test", image: imageToShow)
                 }
                 
                 
-                if isFacebookInstalled(){
-                    VStack {
-                        Image("facebookIcon")
-                            .resizable()
-                            .frame(width: 44,height: 44)
-                        Text("Facebook")
-                            .font(.inter(.bold, relativeTo: .caption))
-                            .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
-                    }
-                    .frame(width: 65)
-                    .onTapGesture {
-                        shareImage(image: imageToShow!)
-                    }
+                VStack {
+                    Image("instagramIcon")
+                        .resizable()
+                        .frame(width: 44,height: 44)
+                    Text("Instagram")
+                        .font(.inter(.bold, relativeTo: .caption))
+                        .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
                 }
+                .frame(width: 65)
+                .onTapGesture {
+                    shareImageToInstagramStories(image: imageToShow!)
+                }
+                
+                
+                VStack {
+                    Image("facebookIcon")
+                        .resizable()
+                        .frame(width: 44,height: 44)
+                    Text("Facebook")
+                        .font(.inter(.bold, relativeTo: .caption))
+                        .foregroundColor((colorScheme) == .dark ? Color.white : Color.black)
+                }
+                .frame(width: 65)
+                .onTapGesture {
+                    shareImage(image: imageToShow!)
+                }
+                
                 VStack {
                     Image(colorScheme == .dark ? "downloadIconDark" : "downloadIconLight")
                         .resizable()
@@ -161,14 +158,11 @@ struct CustomShareSheet: View {
             
         }
     }
-    func checkIfWhatsAppInstalled() -> Bool {
-        return UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!)
-    }
     
     func shareOnWhatsApp(text: String, image: UIImage?) {
         if let image = image, let imageData = image.jpegData(compressionQuality: 1.0) {
             let tempFileURL = saveImageToDocumentsDirectory(imageData: imageData)
-            let whatsappURL = URL(string: "whatsapp://send?text=mmm") // You can add the phone number here
+            let whatsappURL = URL(string: "whatsapp://send?text=test") // You can add the phone number here
             
             if let url = whatsappURL, UIApplication.shared.canOpenURL(url) {
                 documentInteractionController = UIDocumentInteractionController(url: tempFileURL)
@@ -176,6 +170,7 @@ struct CustomShareSheet: View {
                 documentInteractionController?.presentOpenInMenu(from: CGRect.zero, in: UIApplication.shared.windows.first?.rootViewController?.view ?? UIView(), animated: true)
             } else {
                 print("WhatsApp is not installed.")
+                shareImage(image: image)
             }
         } else {
             print("Image not found.")
@@ -199,7 +194,13 @@ struct CustomShareSheet: View {
     }
     
     func shareImageToInstagramStories( image: UIImage) {
+        guard let instagram = URL(string: "instagram://") else {
+            shareImage(image: image)
+            return
+        }
+        
         guard let instagramStoriesUrl = URL(string: "instagram-stories://share?source_application=your-app-bundle-identifier") else {
+            shareImage(image: image)
             return
         }
         
@@ -209,24 +210,19 @@ struct CustomShareSheet: View {
             
             UIPasteboard.general.setItems([pasteboardItem], options: pasteboardOptions)
             
-            UIApplication.shared.open(instagramStoriesUrl, options: [:], completionHandler: nil)
+            UIApplication.shared.open(instagramStoriesUrl, options: [:]) { success in
+                if !success {
+                    shareImage(image: image)
+                }
+            }
         } else {
-            print("🙈 Image data not available.")
+            print("Image data not available.")
         }
     }
     
     func shareImage( image: UIImage) {
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
-    }
-    func isInstagramInstalled() -> Bool {
-        let instagramURL = URL(string: "instagram://app")
-        return UIApplication.shared.canOpenURL(instagramURL!)
-    }
-    
-    func isFacebookInstalled() -> Bool {
-        let facebookURL = URL(string: "fb://app")
-        return UIApplication.shared.canOpenURL(facebookURL!)
     }
 }
 
